@@ -1,0 +1,13 @@
+C:\Users\JoshH\source\personal\torque\torque\torque.Postgres\bin\Debug\netstandard2.1\torque.Postgres.deps.json
+C:\Users\JoshH\source\personal\torque\torque\torque.Postgres\bin\Debug\netstandard2.1\torque.Postgres.dll
+C:\Users\JoshH\source\personal\torque\torque\torque.Postgres\bin\Debug\netstandard2.1\torque.Postgres.pdb
+C:\Users\JoshH\source\personal\torque\torque\torque.Postgres\bin\Debug\netstandard2.1\torque.Common.dll
+C:\Users\JoshH\source\personal\torque\torque\torque.Postgres\bin\Debug\netstandard2.1\torque.Common.pdb
+C:\Users\JoshH\source\personal\torque\torque\torque.Postgres\obj\Debug\netstandard2.1\torque.Postgres.csprojAssemblyReference.cache
+C:\Users\JoshH\source\personal\torque\torque\torque.Postgres\obj\Debug\netstandard2.1\torque.Postgres.Resources.DatabaseObjects.resources
+C:\Users\JoshH\source\personal\torque\torque\torque.Postgres\obj\Debug\netstandard2.1\torque.Postgres.csproj.GenerateResource.cache
+C:\Users\JoshH\source\personal\torque\torque\torque.Postgres\obj\Debug\netstandard2.1\torque.Postgres.AssemblyInfoInputs.cache
+C:\Users\JoshH\source\personal\torque\torque\torque.Postgres\obj\Debug\netstandard2.1\torque.Postgres.AssemblyInfo.cs
+C:\Users\JoshH\source\personal\torque\torque\torque.Postgres\obj\Debug\netstandard2.1\torque.Postgres.csproj.CopyComplete
+C:\Users\JoshH\source\personal\torque\torque\torque.Postgres\obj\Debug\netstandard2.1\torque.Postgres.dll
+C:\Users\JoshH\source\personal\torque\torque\torque.Postgres\obj\Debug\netstandard2.1\torque.Postgres.pdb

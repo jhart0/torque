@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Constraint" xml:space="preserve">
+    <value>with indexes as (
+    select
+        schemaname as schema,
+        tablename as table_name,
+        indexname as name,
+        indexdef as definition,
+        indexdef as create_statement
+    FROM
+        pg_indexes
+    order by
+        schemaname, tablename, indexname
+)
+select
+    nspname as Schema,
+    conname as Name,
+    relname as TableName,
+    pg_get_constraintdef(pg_constraint.oid) as Definition,
+    tc.constraint_type as Type
+from
+    pg_constraint
+    INNER JOIN pg_class
+        ON conrelid=pg_class.oid
+    INNER JOIN pg_namespace
+        ON pg_namespace.oid=pg_class.relnamespace
+    inner join information_schema.table_constraints tc
+        on nspname = tc.constraint_schema
+        and conname = tc.constraint_name
+        and relname = tc.table_name
+    left outer join indexes i
+        on nspname = i.schema
+        and conname = i.name
+        and relname = i.table_name
+    where true
+order by 1, 3, 2;</value>
+  </data>
+  <data name="Function" xml:space="preserve">
+    <value>select
+	nspname as Schema,
+	proname as Name,
+	pg_get_functiondef(p.oid) as FullDefinition
+from pg_proc p
+INNER JOIN pg_namespace n
+  ON n.oid=p.pronamespace
+join information_schema.routines r
+  on r.routine_schema = n.nspname
+  and r.specific_name = p.proname || '_' || p.oid
+where p.prokind != 'a'
+and nspname not in ('pg_internal', 'pg_catalog', 'information_schema', 'pg_toast')
+and nspname not like 'pg_temp_%' and nspname not like 'pg_toast_temp_%'
+order by
+	schema, name;</value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>SELECT n.nspname AS Schema,
+   c.relname AS TableName,
+   i.relname AS Name,
+   pg_get_indexdef(i.oid) AS Definition
+FROM pg_index x
+JOIN pg_class c ON c.oid = x.indrelid
+JOIN pg_class i ON i.oid = x.indexrelid
+LEFT JOIN pg_namespace n ON n.oid = c.relnamespace
+WHERE c.relkind in ('r', 'm', 'p') AND i.relkind in ('i', 'I')
+  and nspname not in ('pg_catalog', 'information_schema', 'pg_toast')
+  and nspname not like 'pg_temp_%' and nspname not like 'pg_toast_temp_%'
+order by 1, 2, 3;</value>
+  </data>
+  <data name="Procedure" xml:space="preserve">
+    <value>select
+	nspname as Schema,
+	proname as Name,
+	pg_get_functiondef(p.oid) as FullDefinition
+from pg_proc p
+INNER JOIN pg_namespace n
+  ON n.oid=p.pronamespace
+join information_schema.routines r
+  on r.routine_schema = n.nspname
+  and r.specific_name = p.proname || '_' || p.oid
+where p.prokind != 'a'
+and nspname not in ('pg_internal', 'pg_catalog', 'information_schema', 'pg_toast')
+and nspname not like 'pg_temp_%' and nspname not like 'pg_toast_temp_%'
+order by
+	schema, name;</value>
+  </data>
+  <data name="Schema" xml:space="preserve">
+    <value>select
+    nspname as SchemaName
+from
+    pg_catalog.pg_namespace
+where nspname not in ('pg_internal', 'pg_catalog', 'information_schema', 'pg_toast') 
+     and nspname not like 'pg_temp_%' and nspname not like 'pg_toast_temp_%'
+order by 1;</value>
+  </data>
+  <data name="Table" xml:space="preserve">
+    <value>with r as (
+    select
+        c.relname as name,
+        n.nspname as schema,
+        c.relkind as relationtype,
+        c.oid as oid,
+        case when c.relkind in ('m', 'v') then
+          pg_get_viewdef(c.oid)
+        else null end
+          as definition,
+        (SELECT
+              '"' || nmsp_parent.nspname || '"."' || parent.relname || '"' as parent
+          FROM pg_inherits
+              JOIN pg_class parent            ON pg_inherits.inhparent = parent.oid
+              JOIN pg_class child             ON pg_inherits.inhrelid   = child.oid
+              JOIN pg_namespace nmsp_parent   ON nmsp_parent.oid  = parent.relnamespace
+              JOIN pg_namespace nmsp_child    ON nmsp_child.oid   = child.relnamespace
+          where child.oid = c.oid)
+        as parent_table,
+        case when c.relpartbound is not null then
+          pg_get_expr(c.relpartbound, c.oid, true)
+        when c.relhassubclass is not null then
+          pg_catalog.pg_get_partkeydef(c.oid)
+        end
+        as partition_def,
+        c.relrowsecurity::boolean as rowsecurity,
+        c.relforcerowsecurity::boolean as forcerowsecurity,
+        c.relpersistence as persistence,
+        c.relpages as page_size_estimate,
+        c.reltuples as row_count_estimate
+    from
+        pg_catalog.pg_class c
+        inner join pg_catalog.pg_namespace n
+          ON n.oid = c.relnamespace
+    where c.relkind in ('r', 'v', 'm', 'c', 'p')
+    and n.nspname not in ('pg_catalog', 'information_schema', 'pg_toast')
+    and n.nspname not like 'pg_temp_%' and n.nspname not like 'pg_toast_temp_%'
+)
+select
+    r.relationtype as RelationType,
+    r.schema AS Schema,
+    r.name AS TableName,
+    a.attnum as Ordinal,
+    a.attname as ColumnName,
+    a.attnotnull as NotNull,
+    a.attidentity != '' as IsIdentity,
+    pg_get_expr(ad.adbin, ad.adrelid) as DefaultDefinition,
+    format_type(atttypid, atttypmod) AS DataType
+FROM
+    r
+    left join pg_catalog.pg_attribute a
+        on r.oid = a.attrelid and a.attnum &gt; 0
+    left join pg_catalog.pg_attrdef ad
+        on a.attrelid = ad.adrelid
+        and a.attnum = ad.adnum
+where a.attisdropped is not true
+	and r.schema not in ('pg_catalog', 'information_schema', 'pg_toast')
+	and r.schema not like 'pg_temp_%' and r.schema not like 'pg_toast_temp_%'
+order by relationtype, r.schema, r.name, Ordinal;</value>
+  </data>
+</root>
