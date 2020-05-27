@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using torque.Common.Contracts.Services;
+using torque.Common.Extensions;
 using torque.Common.Models;
 using torque.Common.Models.Contracts.DatabaseObjects;
 using torque.Models.DatabaseObjects;
@@ -20,17 +21,18 @@ namespace torque.Common.Services
                     break;
 
                 if (destObjects.Any(it => it.Name == item.Name && it.Schema == item.Schema))
-                    results.Add(new ComparisonResult(typeof(T), Enum.ComparisonDirection.InBothButDifferent, item.Definition, item));
+                    results.Add(new ComparisonResult(typeof(T), Enum.ComparisonDirection.InBothButDifferent, item.Definition, item, item.GetCanonicalName()));
 
-                results.Add(new ComparisonResult(typeof(T), Enum.ComparisonDirection.OnlyInSource, item.Definition, item));
+                results.Add(new ComparisonResult(typeof(T), Enum.ComparisonDirection.OnlyInSource, item.Definition, item, item.GetCanonicalName()));
             }
 
             foreach (var item in only2)
             {
-                results.Add(new ComparisonResult(typeof(T), Enum.ComparisonDirection.OnlyInDest, item.Definition, item));
+                results.Add(new ComparisonResult(typeof(T), Enum.ComparisonDirection.OnlyInDest, item.Definition, item, item.GetCanonicalName()));
             }
 
             return results;
         }
+        
     }
 }

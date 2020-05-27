@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JoshH\\source\\personal\\torque\\torque\\torque.Postgres\\torque.Postgres.csproj": {}
+    "C:\\Users\\JoshH\\source\\personal\\torque\\torque.Postgres\\torque.Postgres.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JoshH\\source\\personal\\torque\\torque\\torque.Common\\torque.Common.csproj": {
+    "C:\\Users\\JoshH\\source\\personal\\torque\\torque.Common\\torque.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JoshH\\source\\personal\\torque\\torque\\torque.Common\\torque.Common.csproj",
+        "projectUniqueName": "C:\\Users\\JoshH\\source\\personal\\torque\\torque.Common\\torque.Common.csproj",
         "projectName": "torque.Common",
-        "projectPath": "C:\\Users\\JoshH\\source\\personal\\torque\\torque\\torque.Common\\torque.Common.csproj",
+        "projectPath": "C:\\Users\\JoshH\\source\\personal\\torque\\torque.Common\\torque.Common.csproj",
         "packagesPath": "C:\\Users\\JoshH\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JoshH\\source\\personal\\torque\\torque\\torque.Common\\obj\\",
+        "outputPath": "C:\\Users\\JoshH\\source\\personal\\torque\\torque.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\JoshH\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -67,14 +67,14 @@
         }
       }
     },
-    "C:\\Users\\JoshH\\source\\personal\\torque\\torque\\torque.Postgres\\torque.Postgres.csproj": {
+    "C:\\Users\\JoshH\\source\\personal\\torque\\torque.Postgres\\torque.Postgres.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JoshH\\source\\personal\\torque\\torque\\torque.Postgres\\torque.Postgres.csproj",
+        "projectUniqueName": "C:\\Users\\JoshH\\source\\personal\\torque\\torque.Postgres\\torque.Postgres.csproj",
         "projectName": "torque.Postgres",
-        "projectPath": "C:\\Users\\JoshH\\source\\personal\\torque\\torque\\torque.Postgres\\torque.Postgres.csproj",
+        "projectPath": "C:\\Users\\JoshH\\source\\personal\\torque\\torque.Postgres\\torque.Postgres.csproj",
         "packagesPath": "C:\\Users\\JoshH\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JoshH\\source\\personal\\torque\\torque\\torque.Postgres\\obj\\",
+        "outputPath": "C:\\Users\\JoshH\\source\\personal\\torque\\torque.Postgres\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\JoshH\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -91,8 +91,8 @@
         "frameworks": {
           "netstandard2.1": {
             "projectReferences": {
-              "C:\\Users\\JoshH\\source\\personal\\torque\\torque\\torque.Common\\torque.Common.csproj": {
-                "projectPath": "C:\\Users\\JoshH\\source\\personal\\torque\\torque\\torque.Common\\torque.Common.csproj"
+              "C:\\Users\\JoshH\\source\\personal\\torque\\torque.Common\\torque.Common.csproj": {
+                "projectPath": "C:\\Users\\JoshH\\source\\personal\\torque\\torque.Common\\torque.Common.csproj"
               }
             }
           }

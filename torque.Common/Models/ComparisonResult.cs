@@ -8,12 +8,14 @@ namespace torque.Common.Models
         public ComparisonResult(Type objectType,
             ComparisonDirection direction,
             string objectDiff,
-            object entity)
+            object entity,
+            string canonicalName)
         {
             ObjectType = objectType;
             Direction = direction;
             ObjectDiff = objectDiff;
             Entity = entity;
+            CanonicalName = canonicalName;
         }
 
         public Type ObjectType { get; }
@@ -23,5 +25,7 @@ namespace torque.Common.Models
         public string ObjectDiff { get; }
 
         public object Entity { get; }
+
+        public string CanonicalName { get; }
     }
 }

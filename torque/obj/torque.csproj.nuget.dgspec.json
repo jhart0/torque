@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JoshH\\source\\personal\\torque\\torque\\torque\\torque.csproj": {}
+    "C:\\Users\\JoshH\\source\\personal\\torque\\torque\\torque.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JoshH\\source\\personal\\torque\\torque\\torque\\torque.csproj": {
+    "C:\\Users\\JoshH\\source\\personal\\torque\\torque\\torque.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JoshH\\source\\personal\\torque\\torque\\torque\\torque.csproj",
+        "projectUniqueName": "C:\\Users\\JoshH\\source\\personal\\torque\\torque\\torque.csproj",
         "projectName": "torque",
-        "projectPath": "C:\\Users\\JoshH\\source\\personal\\torque\\torque\\torque\\torque.csproj",
+        "projectPath": "C:\\Users\\JoshH\\source\\personal\\torque\\torque\\torque.csproj",
         "packagesPath": "C:\\Users\\JoshH\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JoshH\\source\\personal\\torque\\torque\\torque\\obj\\",
+        "outputPath": "C:\\Users\\JoshH\\source\\personal\\torque\\torque\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\JoshH\\AppData\\Roaming\\NuGet\\NuGet.Config",
