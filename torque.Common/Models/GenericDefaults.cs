@@ -9,19 +9,19 @@ namespace torque.Common.Models
     {
         static GenericDefaults()
         {
-            var objects = new List<Type>
+            var objects = new List<string>
             {
-                typeof(Constraint),
-                typeof(Function),
-                typeof(Index),
-                typeof(Procedure),
-                typeof(Schema),
-                typeof(Table)
+                nameof(Constraint),
+                nameof(Function),
+                nameof(Index),
+                nameof(Procedure),
+                nameof(Schema),
+                nameof(Table)
             };
 
             Objects = objects;
         }
 
-        public static IEnumerable<Type> Objects { get; }
+        public static IEnumerable<string> Objects { get; }
     }
 }

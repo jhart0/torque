@@ -8,13 +8,13 @@ namespace torque.Postgres
     {
         static PostgresDefaultComparisonObjects()
         {
-            var objects = new List<Type>();
+            var objects = new List<string>();
             objects.AddRange(GenericDefaults.Objects);
-            objects.Add(typeof(Type));
+            objects.Add(nameof(Type));
 
             Objects = objects;
         }
 
-        public static IEnumerable<Type> Objects { get; }
+        public static IEnumerable<string> Objects { get; }
     }
 }

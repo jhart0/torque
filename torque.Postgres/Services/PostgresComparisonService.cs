@@ -7,6 +7,7 @@ using torque.Common.Contracts.Services;
 using torque.Common.Enum;
 using torque.Common.Extensions;
 using torque.Common.Models;
+using torque.Models.DatabaseObjects;
 using torque.Postgres.Contracts.Services;
 
 namespace torque.Postgres.Services
@@ -58,7 +59,10 @@ namespace torque.Postgres.Services
 
             foreach (var t in toDrop)
             {
-                diff.Append($"DROP {nameof(t.ObjectType)} {t.CanonicalName}{_statementTerminator}");
+                if(t.ObjectType.Name == nameof(Constraint))
+                    diff.Append($"ALTER TABLE {((Constraint)t.Entity).Schema}.{((Constraint)t.Entity).TableName} DROP {t.ObjectType.Name} {t.CanonicalName}{_statementTerminator}");
+                else
+                    diff.Append($"DROP {t.ObjectType.Name} {t.CanonicalName}{_statementTerminator}");
                 diff.Append(Environment.NewLine);
             }
 

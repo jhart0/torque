@@ -24,3 +24,4 @@ C:\Users\JoshH\source\personal\torque\torque.Postgres\obj\Debug\netstandard2.1\t
 C:\Users\JoshH\source\personal\torque\torque.Postgres\obj\Debug\netstandard2.1\torque.Postgres.csproj.CopyComplete
 C:\Users\JoshH\source\personal\torque\torque.Postgres\obj\Debug\netstandard2.1\torque.Postgres.dll
 C:\Users\JoshH\source\personal\torque\torque.Postgres\obj\Debug\netstandard2.1\torque.Postgres.pdb
+C:\Users\JoshH\source\personal\torque\torque.Postgres\bin\Debug\netstandard2.1\Resources\DatabaseObjects.resx
