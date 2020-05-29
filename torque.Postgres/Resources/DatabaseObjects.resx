@@ -167,6 +167,7 @@ join information_schema.routines r
 where p.prokind != 'a'
 and nspname not in ('pg_internal', 'pg_catalog', 'information_schema', 'pg_toast')
 and nspname not like 'pg_temp_%' and nspname not like 'pg_toast_temp_%'
+and pg_get_functiondef(p.oid) like '%CREATE OR REPLACE FUNCTION%'
 order by
 	schema, name;</value>
   </data>
@@ -182,6 +183,7 @@ LEFT JOIN pg_namespace n ON n.oid = c.relnamespace
 WHERE c.relkind in ('r', 'm', 'p') AND i.relkind in ('i', 'I')
   and nspname not in ('pg_catalog', 'information_schema', 'pg_toast')
   and nspname not like 'pg_temp_%' and nspname not like 'pg_toast_temp_%'
+  and indisprimary = false
 order by 1, 2, 3;</value>
   </data>
   <data name="Procedure" xml:space="preserve">
@@ -198,6 +200,7 @@ join information_schema.routines r
 where p.prokind != 'a'
 and nspname not in ('pg_internal', 'pg_catalog', 'information_schema', 'pg_toast')
 and nspname not like 'pg_temp_%' and nspname not like 'pg_toast_temp_%'
+and pg_get_functiondef(p.oid) like '%CREATE OR REPLACE PROC%'
 order by
 	schema, name;</value>
   </data>

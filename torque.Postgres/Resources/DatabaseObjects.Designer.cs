@@ -104,8 +104,7 @@ namespace torque.Postgres.Resources {
         ///where p.prokind != &apos;a&apos;
         ///and nspname not in (&apos;pg_internal&apos;, &apos;pg_catalog&apos;, &apos;information_schema&apos;, &apos;pg_toast&apos;)
         ///and nspname not like &apos;pg_temp_%&apos; and nspname not like &apos;pg_toast_temp_%&apos;
-        ///order by
-        ///	schema, name;.
+        ///and pg_get_functiondef(p.oid) like &apos;%CREATE O [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Function {
             get {
@@ -125,7 +124,8 @@ namespace torque.Postgres.Resources {
         ///WHERE c.relkind in (&apos;r&apos;, &apos;m&apos;, &apos;p&apos;) AND i.relkind in (&apos;i&apos;, &apos;I&apos;)
         ///  and nspname not in (&apos;pg_catalog&apos;, &apos;information_schema&apos;, &apos;pg_toast&apos;)
         ///  and nspname not like &apos;pg_temp_%&apos; and nspname not like &apos;pg_toast_temp_%&apos;
-        ///order by 1, 2, 3;.
+        ///  and indisprimary = false
+        ///orde [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Index {
             get {
@@ -147,8 +147,7 @@ namespace torque.Postgres.Resources {
         ///where p.prokind != &apos;a&apos;
         ///and nspname not in (&apos;pg_internal&apos;, &apos;pg_catalog&apos;, &apos;information_schema&apos;, &apos;pg_toast&apos;)
         ///and nspname not like &apos;pg_temp_%&apos; and nspname not like &apos;pg_toast_temp_%&apos;
-        ///order by
-        ///	schema, name;.
+        ///and pg_get_functiondef(p.oid) like &apos;%CREATE O [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Procedure {
             get {

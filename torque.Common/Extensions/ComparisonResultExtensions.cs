@@ -25,6 +25,9 @@ namespace torque.Common.Extensions
 
         public static string GetCanonicalName(this IComparableEntity entity)
         {
+            if (entity is Constraint)
+                return $"{entity.Name}";
+
             return $"{entity.Schema}.{entity.Name}";
         }
     }
