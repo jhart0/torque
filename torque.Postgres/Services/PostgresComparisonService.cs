@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,6 +42,25 @@ namespace torque.Postgres.Services
 
             //Creates First
             var toCreate = differences.Where(it => it.Direction == ComparisonDirection.OnlyInSource);
+            this.AppendCreates(toCreate, diff);
+
+            //Then Differences
+            //Basic Objects should just be drop and create for difference
+            var basicDiffs = differences.Where(it => it.Direction == ComparisonDirection.InBothButDifferent && it.ObjectType.Name != nameof(Table));
+            this.AppendDrops(basicDiffs, diff);
+            this.AppendCreates(basicDiffs, diff);
+            //Tables should add new column in as alter script
+            //TODO
+
+            //Drops Last
+            var toDrop = differences.Where(it => it.Direction == ComparisonDirection.OnlyInDest);
+            this.AppendDrops(toDrop, diff);
+
+            return diff.ToString();
+        }
+
+        private void AppendCreates(IEnumerable<ComparisonResult> toCreate, StringBuilder diff)
+        {
             toCreate.SortDependencies();
 
             foreach (var t in toCreate)
@@ -49,24 +69,20 @@ namespace torque.Postgres.Services
                 diff.Append(_statementTerminator);
                 diff.Append(Environment.NewLine);
             }
+        }
 
-            //Then Differences
-            //TODO
-
-            //Drops Last
-            var toDrop = differences.Where(it => it.Direction == ComparisonDirection.OnlyInDest);
+        private void AppendDrops(IEnumerable<ComparisonResult> toDrop, StringBuilder diff)
+        {
             toDrop.SortDependencies();
 
             foreach (var t in toDrop)
             {
-                if(t.ObjectType.Name == nameof(Constraint))
+                if (t.ObjectType.Name == nameof(Constraint))
                     diff.Append($"ALTER TABLE {((Constraint)t.Entity).Schema}.{((Constraint)t.Entity).TableName} DROP {t.ObjectType.Name} {t.CanonicalName}{_statementTerminator}");
                 else
                     diff.Append($"DROP {t.ObjectType.Name} {t.CanonicalName}{_statementTerminator}");
                 diff.Append(Environment.NewLine);
             }
-
-            return diff.ToString();
         }
     }
 }
