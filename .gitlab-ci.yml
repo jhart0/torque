@@ -1,9 +1,11 @@
 build:
+    stage: build
     image: jhart0/dotnet_python_node
     script:
         - dotnet build .
 
 test:
+    stage: test
     image: jhart0/dotnet_python_node
     script:
         - dotnet test .
