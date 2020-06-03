@@ -2,3 +2,8 @@ build:
     image: jhart0/dotnet_python_node
     script:
         - dotnet build .
+
+test:
+    image: jhart0/dotnet_python_node
+    script:
+        - dotnet test .
