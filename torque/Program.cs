@@ -20,7 +20,7 @@ namespace torque
                .AddTransient<IComparisonService, PostgresComparisonService>()
                .AddTransient<IQueryRepository, PostgresQueryRepository>()
                .AddTransient<ICommandRepository, PostgresCommandRepository>()
-               .AddTransient<IConstraintMappingService, ConstraintMappingService>()
+               .AddTransient<IObjectMappingService, ObjectMappingService>()
                .AddTransient<IEntityComparisonService, BaseEntityComparisonService>();
 
             var serviceProvider = serviceCollection.BuildServiceProvider();

@@ -15,11 +15,11 @@ namespace torque.Common.Services
 {
     public class BaseEntityComparisonService : IEntityComparisonService
     {
-        private readonly IConstraintMappingService _constraintMappingService;
+        private readonly IObjectMappingService _constraintMappingService;
 
         private readonly IQueryRepository _queryRepository;
 
-        public BaseEntityComparisonService(IConstraintMappingService constraintMappingService,
+        public BaseEntityComparisonService(IObjectMappingService constraintMappingService,
             IQueryRepository queryRepository)
         {
             this._constraintMappingService = constraintMappingService;
@@ -62,7 +62,10 @@ namespace torque.Common.Services
                         //TODO
                         break;
                     case nameof(Table):
-                        //TODO
+                        var tquery = rm.GetString("Table");
+                        var sourceTables = await this._queryRepository.FetchEntities<Table>(context.FromConnString, tquery);
+                        var destTables = await this._queryRepository.FetchEntities<Table>(context.ToConnString, tquery);
+                        results.AddRange(this._constraintMappingService.MapTables(sourceTables, destTables));
                         break;
                 }
             }

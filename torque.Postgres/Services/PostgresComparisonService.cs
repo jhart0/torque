@@ -41,6 +41,8 @@ namespace torque.Postgres.Services
             var differences = await this._entityComparisonService.CompareObjects(context);
 
             //Creates First
+            var columnsToAdd = differences.Where(it => it.Direction == ComparisonDirection.OnlyInSource && it.ObjectType.Name == nameof(Table));
+            this.AppendCreates(columnsToAdd, diff);
             var toCreate = differences.Where(it => it.Direction == ComparisonDirection.OnlyInSource);
             this.AppendCreates(toCreate, diff);
 
@@ -49,10 +51,10 @@ namespace torque.Postgres.Services
             var basicDiffs = differences.Where(it => it.Direction == ComparisonDirection.InBothButDifferent && it.ObjectType.Name != nameof(Table));
             this.AppendDrops(basicDiffs, diff);
             this.AppendCreates(basicDiffs, diff);
-            //Tables should add new column in as alter script
-            //TODO
 
             //Drops Last
+            var columnsToDrop = differences.Where(it => it.Direction == ComparisonDirection.OnlyInDest && it.ObjectType.Name == nameof(Table));
+            this.AppendDrops(columnsToDrop, diff);
             var toDrop = differences.Where(it => it.Direction == ComparisonDirection.OnlyInDest);
             this.AppendDrops(toDrop, diff);
 
@@ -79,6 +81,8 @@ namespace torque.Postgres.Services
             {
                 if (t.ObjectType.Name == nameof(Constraint))
                     diff.Append($"ALTER TABLE {((Constraint)t.Entity).Schema}.{((Constraint)t.Entity).TableName} DROP {t.ObjectType.Name} {t.CanonicalName}{_statementTerminator}");
+                else if (t.ObjectType.Name == nameof(Table))
+                    diff.Append($"ALTER TABLE {((Table)t.Entity).Schema}.{((Table)t.Entity).TableName} DROP COLUMN {t.CanonicalName}{_statementTerminator}");
                 else
                     diff.Append($"DROP {t.ObjectType.Name} {t.CanonicalName}{_statementTerminator}");
                 diff.Append(Environment.NewLine);
