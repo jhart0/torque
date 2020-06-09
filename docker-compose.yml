@@ -1,0 +1,25 @@
+version: '3.1'
+
+services:
+
+  db1:
+    image: postgres
+    command: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: admin
+
+  db2:
+    image: postgres
+    command: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: admin
+
+  torque:
+    build: 
+        context: .
+        dockerfile: Dockerfile
+    depends_on: 
+      - db1
+      - db2
