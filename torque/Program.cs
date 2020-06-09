@@ -27,11 +27,10 @@ namespace torque
 
             var transferService = serviceProvider.GetService<IComparisonService>();
             var rm = Postgres.Resources.DatabaseObjects.ResourceManager;
-            var context = new ExecutionContext("Server=localhost;Database=postgres;User ID=postgres;Password=admin", "Server=localhost;Database=salesdw;User ID=postgres;Password=admin", false, 
+            var context = new ExecutionContext(args[0], args[1], false, 
                 PostgresDefaultComparisonObjects.Objects, rm);
             var diff = await transferService.GenerateComparison(context);
             Console.Write(diff);
-            Console.Read();
         }
     }
 }

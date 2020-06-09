@@ -17,9 +17,10 @@ services:
       POSTGRES_PASSWORD: admin
 
   torque:
-    build: 
+    build:
         context: .
         dockerfile: Dockerfile
+    command: ["server=db1;database=postgres;user id=postgres;password=admin", "server=db2;database=postgres;user id=postgres;password=admin"]
     depends_on: 
       - db1
       - db2
