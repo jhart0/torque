@@ -11,11 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "torque.Postgres", "torque.P
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{EDCB6C26-8DD3-420C-9CF6-100AE6FC9C6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "torque.Common.Tests", "torque.Common.Tests\torque.Common.Tests.csproj", "{19915244-0BDD-492F-AC99-A2B05B36D9F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "torque.Common.Tests", "torque.Common.Tests\torque.Common.Tests.csproj", "{19915244-0BDD-492F-AC99-A2B05B36D9F8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hosts", "Hosts", "{E9BC8CA9-D3D8-40FA-9AC8-BF5CC6A9D0C0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{1FA94C4F-8B0E-44FD-B863-F59D8C545409}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "torque.IntegrationTests.Postgres", "torque.IntegrationTests.Postgres\torque.IntegrationTests.Postgres.csproj", "{9709CD60-9ABE-4126-877A-D5BBB82CCAAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{19915244-0BDD-492F-AC99-A2B05B36D9F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19915244-0BDD-492F-AC99-A2B05B36D9F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19915244-0BDD-492F-AC99-A2B05B36D9F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9709CD60-9ABE-4126-877A-D5BBB82CCAAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9709CD60-9ABE-4126-877A-D5BBB82CCAAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9709CD60-9ABE-4126-877A-D5BBB82CCAAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9709CD60-9ABE-4126-877A-D5BBB82CCAAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{30E26B5A-38B8-4FB3-8825-6D2633C5F6EC} = {1FA94C4F-8B0E-44FD-B863-F59D8C545409}
 		{192B621E-2742-4997-BE2B-52C9DFE67A08} = {1FA94C4F-8B0E-44FD-B863-F59D8C545409}
 		{19915244-0BDD-492F-AC99-A2B05B36D9F8} = {EDCB6C26-8DD3-420C-9CF6-100AE6FC9C6E}
+		{9709CD60-9ABE-4126-877A-D5BBB82CCAAA} = {EDCB6C26-8DD3-420C-9CF6-100AE6FC9C6E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {366B21D1-4033-4DC2-9F64-B8630EC87769}
