@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace torque.Models.DatabaseObjects
 {
-    public class Table
+    public struct Table
     {
         public string RelationType { get; set; } //pg: c == type, r == table
 

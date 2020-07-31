@@ -41,21 +41,26 @@ namespace torque.Postgres.Services
             var differences = await this._entityComparisonService.CompareObjects(context);
 
             //Creates First
-            var columnsToAdd = differences.Where(it => it.Direction == ComparisonDirection.OnlyInSource && it.ObjectType.Name == nameof(Table));
+            var columnsToAdd = differences.Where(it => it.Direction == ComparisonDirection.OnlyInSource 
+                && it.ObjectType.Name == nameof(Table));
             this.AppendCreates(columnsToAdd, diff);
-            var toCreate = differences.Where(it => it.Direction == ComparisonDirection.OnlyInSource);
+            var toCreate = differences.Where(it => it.Direction == ComparisonDirection.OnlyInSource 
+                && it.ObjectType.Name != nameof(Table));
             this.AppendCreates(toCreate, diff);
 
             //Then Differences
             //Basic Objects should just be drop and create for difference
-            var basicDiffs = differences.Where(it => it.Direction == ComparisonDirection.InBothButDifferent && it.ObjectType.Name != nameof(Table));
+            var basicDiffs = differences.Where(it => it.Direction == ComparisonDirection.InBothButDifferent 
+                && it.ObjectType.Name != nameof(Table));
             this.AppendDrops(basicDiffs, diff);
             this.AppendCreates(basicDiffs, diff);
 
             //Drops Last
-            var columnsToDrop = differences.Where(it => it.Direction == ComparisonDirection.OnlyInDest && it.ObjectType.Name == nameof(Table));
+            var columnsToDrop = differences.Where(it => it.Direction == ComparisonDirection.OnlyInDest 
+                && it.ObjectType.Name == nameof(Table));
             this.AppendDrops(columnsToDrop, diff);
-            var toDrop = differences.Where(it => it.Direction == ComparisonDirection.OnlyInDest);
+            var toDrop = differences.Where(it => it.Direction == ComparisonDirection.OnlyInDest 
+                && it.ObjectType.Name != nameof(Table));
             this.AppendDrops(toDrop, diff);
 
             return diff.ToString();

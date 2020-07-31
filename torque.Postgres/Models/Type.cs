@@ -5,7 +5,7 @@ using torque.Models.DatabaseObjects;
 
 namespace torque.Postgres.Models
 {
-    public class Type : Table
+    public struct Type
     {
     }
 }

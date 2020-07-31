@@ -42,9 +42,9 @@ namespace torque.Common.Services
 
             foreach (var table in sourceTables)
             {
-                if (destTables.Any(it => it.Key == table.Key))
+                if (destTables.Any(it => table.Key.Schema == it.Key.Schema && it.Key.TableName == it.Key.TableName))
                 {
-                    var destTable = destTables.First(it => it.Key == table.Key);
+                    var destTable = destTables.First(it => table.Key.Schema == it.Key.Schema && it.Key.TableName == it.Key.TableName);
                     foreach (var column in table)
                     {
                         if (!destTable.Any(it => it.ColumnName == column.ColumnName))
