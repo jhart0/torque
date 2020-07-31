@@ -19,8 +19,8 @@ compose:
     image: jhart0/dind_aws
     services:
     - name: docker:19.03.12-dind
-        entrypoint: ["env", "-u", "DOCKER_HOST"]
-        command: ["dockerd-entrypoint.sh"]
+      entrypoint: ["env", "-u", "DOCKER_HOST"]
+      command: ["dockerd-entrypoint.sh"]
     script:
         - docker-compose build
         - docker-compose up -d
