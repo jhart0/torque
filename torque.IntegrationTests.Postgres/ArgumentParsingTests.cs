@@ -2,6 +2,7 @@ using NUnit.Framework;
 using System.Text;
 using System.Threading.Tasks;
 using torque.Common.Contracts.Services;
+using System;
 
 namespace torque.IntegrationTests.Postgres
 {
