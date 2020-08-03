@@ -10,7 +10,7 @@ namespace torque.Common.Extensions
 {
     public static class ComparisonResultExtensions
     {
-        public static IEnumerable<ComparisonResult> SortDependencies(this IEnumerable<ComparisonResult> comparisons)
+        public static IEnumerable<ComparisonOutput> SortDependencies(this IEnumerable<ComparisonOutput> comparisons)
         {
             return comparisons.OrderBy(it =>
                 it.ObjectType == typeof(Schema) ? 1 :

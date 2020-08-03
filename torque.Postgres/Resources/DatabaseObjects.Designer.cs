@@ -94,7 +94,7 @@ namespace torque.Postgres.Resources {
         ///   Looks up a localized string similar to select
         ///	nspname as Schema,
         ///	proname as Name,
-        ///	pg_get_functiondef(p.oid) as FullDefinition
+        ///	pg_get_functiondef(p.oid) as Definition
         ///from pg_proc p
         ///INNER JOIN pg_namespace n
         ///  ON n.oid=p.pronamespace
@@ -104,7 +104,7 @@ namespace torque.Postgres.Resources {
         ///where p.prokind != &apos;a&apos;
         ///and nspname not in (&apos;pg_internal&apos;, &apos;pg_catalog&apos;, &apos;information_schema&apos;, &apos;pg_toast&apos;)
         ///and nspname not like &apos;pg_temp_%&apos; and nspname not like &apos;pg_toast_temp_%&apos;
-        ///and pg_get_functiondef(p.oid) like &apos;%CREATE O [rest of string was truncated]&quot;;.
+        ///and pg_get_functiondef(p.oid) like &apos;%CREATE OR RE [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Function {
             get {

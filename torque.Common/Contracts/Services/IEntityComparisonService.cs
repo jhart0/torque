@@ -6,6 +6,6 @@ namespace torque.Common.Contracts.Services
 {
     public interface IEntityComparisonService
     {
-        Task<IEnumerable<ComparisonResult>> CompareObjects(ExecutionContext context);
+        Task<IEnumerable<ComparisonOutput>> CompareObjects(ExecutionContext context);
     }
 }

@@ -3,9 +3,9 @@ using torque.Common.Enum;
 
 namespace torque.Common.Models
 {
-    public struct ComparisonResult
+    public struct ComparisonOutput
     {
-        public ComparisonResult(Type objectType,
+        public ComparisonOutput(Type objectType,
             ComparisonDirection direction,
             string objectDiff,
             object entity,

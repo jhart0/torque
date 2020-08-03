@@ -66,7 +66,7 @@ namespace torque.Postgres.Services
             return diff.ToString();
         }
 
-        private void AppendCreates(IEnumerable<ComparisonResult> toCreate, StringBuilder diff)
+        private void AppendCreates(IEnumerable<ComparisonOutput> toCreate, StringBuilder diff)
         {
             toCreate.SortDependencies();
 
@@ -78,7 +78,7 @@ namespace torque.Postgres.Services
             }
         }
 
-        private void AppendDrops(IEnumerable<ComparisonResult> toDrop, StringBuilder diff)
+        private void AppendDrops(IEnumerable<ComparisonOutput> toDrop, StringBuilder diff)
         {
             toDrop.SortDependencies();
 

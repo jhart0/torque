@@ -1,6 +1,8 @@
-﻿namespace torque.Common.Models.Contracts.DatabaseObjects
+﻿using System;
+
+namespace torque.Common.Models.Contracts.DatabaseObjects
 {
-    public interface IComparableEntity
+    public interface IComparableEntity : IEquatable<IComparableEntity>
     {
         string Name { get; }
 

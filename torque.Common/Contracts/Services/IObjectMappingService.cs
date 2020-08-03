@@ -7,8 +7,8 @@ namespace torque.Common.Contracts.Services
 {
     public interface IObjectMappingService
     {
-        IEnumerable<ComparisonResult> MapObjects<T>(IEnumerable<T> sourceObjects, IEnumerable<T> destObjects) where T : IComparableEntity;
+        IEnumerable<ComparisonOutput> MapObjects<T>(IEnumerable<T> sourceObjects, IEnumerable<T> destObjects) where T : IComparableEntity;
 
-        IEnumerable<ComparisonResult> MapTables(IEnumerable<Table> sourceTableColumns, IEnumerable<Table> destTableColumns);
+        IEnumerable<ComparisonOutput> MapTables(IEnumerable<Table> sourceTableColumns, IEnumerable<Table> destTableColumns);
     }
 }

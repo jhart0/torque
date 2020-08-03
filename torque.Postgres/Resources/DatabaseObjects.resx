@@ -157,7 +157,7 @@ order by 1, 3, 2;</value>
     <value>select
 	nspname as Schema,
 	proname as Name,
-	pg_get_functiondef(p.oid) as FullDefinition
+	pg_get_functiondef(p.oid) as Definition
 from pg_proc p
 INNER JOIN pg_namespace n
   ON n.oid=p.pronamespace

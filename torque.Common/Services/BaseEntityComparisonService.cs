@@ -1,9 +1,4 @@
-﻿using Dapper;
-using Npgsql;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Resources;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using torque.Common.Contracts.Repositories;
 using torque.Common.Contracts.Services;
@@ -26,9 +21,9 @@ namespace torque.Common.Services
             this._queryRepository = queryRepository;
         }
 
-        public async Task<IEnumerable<ComparisonResult>> CompareObjects(ExecutionContext context)
+        public async Task<IEnumerable<ComparisonOutput>> CompareObjects(ExecutionContext context)
         {
-            var results = new List<ComparisonResult>();
+            var results = new List<ComparisonOutput>();
             var rm = context.ResourceManager;
             foreach (var objectType in context.ObjectsToDeploy)
             {

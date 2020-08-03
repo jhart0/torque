@@ -10,33 +10,36 @@ namespace torque.Common.Services
 {
     public class ObjectMappingService : IObjectMappingService
     {
-        public IEnumerable<ComparisonResult> MapObjects<T>(IEnumerable<T> sourceObjects, IEnumerable<T> destObjects) where T : IComparableEntity
+        public IEnumerable<ComparisonOutput> MapObjects<T>(IEnumerable<T> sourceObjects, IEnumerable<T> destObjects) where T : IComparableEntity
         {
-            var results = new List<ComparisonResult>();
-            var only2 = destObjects.Except(sourceObjects);
+            var results = new List<ComparisonOutput>();
 
             foreach (var item in sourceObjects)
             {
                 if (destObjects.Any(it => it.Equals(item)))
-                    break;
+                    continue;
 
-                if (destObjects.Any(it => it.Name == item.Name && it.Schema == item.Schema))
-                    results.Add(new ComparisonResult(typeof(T), Enum.ComparisonDirection.InBothButDifferent, item.Definition, item, item.GetCanonicalName()));
+                if (destObjects.Any(it => it.Name == item.Name && it.Schema == item.Schema && it.Definition != item.Definition))
+                {
+                    results.Add(new ComparisonOutput(typeof(T), Enum.ComparisonDirection.InBothButDifferent, item.Definition, item, item.GetCanonicalName()));
+                    continue;
+                }
 
-                results.Add(new ComparisonResult(typeof(T), Enum.ComparisonDirection.OnlyInSource, item.Definition, item, item.GetCanonicalName()));
+                results.Add(new ComparisonOutput(typeof(T), Enum.ComparisonDirection.OnlyInSource, item.Definition, item, item.GetCanonicalName()));
             }
 
+            var only2 = destObjects.Where(it => !sourceObjects.Any(itt => itt.GetCanonicalName() == it.GetCanonicalName()));
             foreach (var item in only2)
             {
-                results.Add(new ComparisonResult(typeof(T), Enum.ComparisonDirection.OnlyInDest, item.Definition, item, item.GetCanonicalName()));
+                results.Add(new ComparisonOutput(typeof(T), Enum.ComparisonDirection.OnlyInDest, item.Definition, item, item.GetCanonicalName()));
             }
 
             return results;
         }
 
-        public IEnumerable<ComparisonResult> MapTables(IEnumerable<Table> sourceTableColumns, IEnumerable<Table> destTableColumns)
+        public IEnumerable<ComparisonOutput> MapTables(IEnumerable<Table> sourceTableColumns, IEnumerable<Table> destTableColumns)
         {
-            var results = new List<ComparisonResult>();
+            var results = new List<ComparisonOutput>();
             var sourceTables = sourceTableColumns.GroupBy(it => new { it.Schema, it.TableName });
             var destTables = destTableColumns.GroupBy(it => new { it.Schema, it.TableName });
 
@@ -49,20 +52,20 @@ namespace torque.Common.Services
                     {
                         if (!destTable.Any(it => it.ColumnName == column.ColumnName))
                         { 
-                            results.Add(new ComparisonResult(typeof(Table), Enum.ComparisonDirection.OnlyInDest, column.GetColumnDropDefinition(), column, column.ColumnName));
+                            results.Add(new ComparisonOutput(typeof(Table), Enum.ComparisonDirection.OnlyInDest, column.GetColumnDropDefinition(), column, column.ColumnName));
                         }
                     }
                     foreach (var column in destTable)
                     {
                         if (!table.Any(it => it.ColumnName == column.ColumnName))
                         {
-                            results.Add(new ComparisonResult(typeof(Table), Enum.ComparisonDirection.OnlyInSource, column.GetColumnCreateDefinition(), column, column.ColumnName));
+                            results.Add(new ComparisonOutput(typeof(Table), Enum.ComparisonDirection.OnlyInSource, column.GetColumnCreateDefinition(), column, column.ColumnName));
                         }
                     }
                 }
                 else
                 {
-                    results.Add(new ComparisonResult(typeof(Table), Enum.ComparisonDirection.OnlyInSource, table.First().GetTableCreateDefinition(table), table, table.First().GetCanonicalTableName()));
+                    results.Add(new ComparisonOutput(typeof(Table), Enum.ComparisonDirection.OnlyInSource, table.First().GetTableCreateDefinition(table), table, table.First().GetCanonicalTableName()));
                 }
 
                 //TODO: drop tables not in source but in dest
