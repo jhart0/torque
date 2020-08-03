@@ -25,7 +25,7 @@ compose:
         - docker-compose build
         - docker-compose up -d
         - sleep 30
-        - docker-compose logs > log
+        - docker-compose logs --no-color  > log 2>&1
         - chmod +x ./testRunner.sh
         - ./testRunner.sh
         - docker-compose down
