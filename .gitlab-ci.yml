@@ -24,5 +24,6 @@ compose:
     script:
         - docker-compose build
         - docker-compose up -d
-        - sleep 60
+        - sleep 30
+        - docker-compose logs
         - docker-compose down
