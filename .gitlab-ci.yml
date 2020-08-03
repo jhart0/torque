@@ -25,5 +25,6 @@ compose:
         - docker-compose build
         - docker-compose up -d
         - sleep 30
-        - docker-compose logs
+        - docker-compose logs > log
+        - ./testRunner.sh
         - docker-compose down
