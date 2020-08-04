@@ -14,6 +14,20 @@ namespace torque.Models.DatabaseObjects
 
         public string Type { get; set; }
 
+        public string GetConstraintDropDefinition()
+        {
+            return $"ALTER TABLE {this.GetCanonicalTableName()} DROP COLUMN {this.Name}";
+        }
+
+        public string GetConstraintCreateDefinition()
+        {
+            return $"ALTER TABLE {this.GetCanonicalTableName()} ADD {this.Definition}";
+        }
+
+        public string GetCanonicalTableName()
+        {
+            return $"{this.Schema}.{this.TableName}";
+        }
 
         public bool Equals(IComparableEntity other)
         {

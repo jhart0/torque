@@ -25,13 +25,19 @@ namespace torque.Common.Services
                     continue;
                 }
 
-                results.Add(new ComparisonOutput(typeof(T), Enum.ComparisonDirection.OnlyInSource, item.Definition, item, item.GetCanonicalName()));
+                var def = item.Definition;
+                if (typeof(T) == typeof(Constraint))
+                    def = ((Constraint)(object)(T)(object)item).GetConstraintCreateDefinition();
+                results.Add(new ComparisonOutput(typeof(T), Enum.ComparisonDirection.OnlyInSource, def, item, item.GetCanonicalName()));
             }
 
             var only2 = destObjects.Where(it => !sourceObjects.Any(itt => itt.GetCanonicalName() == it.GetCanonicalName()));
             foreach (var item in only2)
             {
-                results.Add(new ComparisonOutput(typeof(T), Enum.ComparisonDirection.OnlyInDest, item.Definition, item, item.GetCanonicalName()));
+                var def = item.Definition;
+                if (typeof(T) == typeof(Constraint))
+                    def = ((Constraint)(object)(T)(object)item).GetConstraintDropDefinition();
+                results.Add(new ComparisonOutput(typeof(T), Enum.ComparisonDirection.OnlyInDest, def, item, item.GetCanonicalName()));
             }
 
             return results;
@@ -48,16 +54,16 @@ namespace torque.Common.Services
                 if (destTables.Any(it => table.Key.Schema == it.Key.Schema && it.Key.TableName == it.Key.TableName))
                 {
                     var destTable = destTables.First(it => table.Key.Schema == it.Key.Schema && it.Key.TableName == it.Key.TableName);
-                    foreach (var column in table)
+                    foreach (var column in destTable)
                     {
-                        if (!destTable.Any(it => it.ColumnName == column.ColumnName))
+                        if (!table.Any(it => it.ColumnName == column.ColumnName))
                         { 
                             results.Add(new ComparisonOutput(typeof(Table), Enum.ComparisonDirection.OnlyInDest, column.GetColumnDropDefinition(), column, column.ColumnName));
                         }
                     }
-                    foreach (var column in destTable)
+                    foreach (var column in table)
                     {
-                        if (!table.Any(it => it.ColumnName == column.ColumnName))
+                        if (!destTable.Any(it => it.ColumnName == column.ColumnName))
                         {
                             results.Add(new ComparisonOutput(typeof(Table), Enum.ComparisonDirection.OnlyInSource, column.GetColumnCreateDefinition(), column, column.ColumnName));
                         }

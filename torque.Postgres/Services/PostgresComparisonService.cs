@@ -89,7 +89,7 @@ namespace torque.Postgres.Services
                 else if (t.ObjectType.Name == nameof(Table))
                     diff.Append($"ALTER TABLE {((Table)t.Entity).Schema}.{((Table)t.Entity).TableName} DROP COLUMN {t.CanonicalName}{_statementTerminator}");
                 else
-                    diff.Append($"DROP {t.ObjectType.Name} {t.CanonicalName}{_statementTerminator}");
+                    diff.Append($"DROP {t.ObjectType.Name} IF EXISTS {t.CanonicalName}{_statementTerminator}");
                 diff.Append(Environment.NewLine);
             }
         }

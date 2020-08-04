@@ -1,5 +1,5 @@
 CREATE TABLE schema2.table1 (table2id integer NOT NULL,table2propa character varying(50) NULL);
-PRIMARY KEY (table2id);
+ALTER TABLE schema2.table1 ADD PRIMARY KEY (table2id);
 CREATE OR REPLACE FUNCTION schema1.funca()
-DROP Function schema2.funca;
+DROP Function IF EXISTS schema2.funca;
 CREATE OR REPLACE FUNCTION schema2.funca()
